@@ -1,0 +1,21 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+// Definir la fuente .otf
+@font-face {
+    font-family: 'Neoreby';
+    src: url('/assets/Neoreby.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  // Aplicar la fuente en todo el body
+  body {
+    font-family: 'Neoreby', sans-serif;
+  }
+  
+  // O en los encabezados
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Neoreby', sans-serif;
+  }
+

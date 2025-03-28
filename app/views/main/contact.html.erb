@@ -1,0 +1,81 @@
+<h1>Contact Us</h1>
+<p>Here is how you can contact us.</p>
+
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+    </div>
+    <div class="col">
+        <div class="card mb-3" style="width: 40rem;">
+            
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="John Doe">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="3"></textarea>
+                </div>
+
+                <div id="liveAlertPlaceholder"></div>
+
+                <!-- Botón para enviar el mensaje -->
+                <button type="button" class="btn btn-primary" id="sendMessageBtn">Send Message</button>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+
+<script>
+// JavaScript para mostrar la alerta después de enviar el mensaje
+document.getElementById("sendMessageBtn").addEventListener("click", function() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    // Verificar que todos los campos estén llenos
+    if (name && email && message) {
+ 
+        var alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+        var alert = document.createElement("div");
+        alert.className = "alert alert-success alert-dismissible fade show";
+        alert.role = "alert";
+        alert.innerHTML = "Thank you for your message, we will contact you soon.";
+
+        var closeButton = document.createElement("button");
+        closeButton.type = "button";
+        closeButton.className = "btn-close";
+        closeButton.setAttribute("data-bs-dismiss", "alert");
+        alert.appendChild(closeButton);
+
+        alertPlaceholder.appendChild(alert);
+
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    } else {
+        var alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+        var alert = document.createElement("div");
+        alert.className = "alert alert-danger alert-dismissible fade show";
+        alert.role = "alert";
+        alert.innerHTML = "Please fill in all fields before submitting.";
+
+        // Añadir el botón de cerrar a la alerta
+        var closeButton = document.createElement("button");
+        closeButton.type = "button";
+        closeButton.className = "btn-close";
+        closeButton.setAttribute("data-bs-dismiss", "alert");
+        alert.appendChild(closeButton);
+
+        alertPlaceholder.appendChild(alert);
+    }
+});
+</script>
